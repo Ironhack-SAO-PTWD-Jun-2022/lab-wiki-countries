@@ -1,4 +1,3 @@
-
 import './App.css';
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
@@ -10,10 +9,23 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <CountriesList/>
-      <Routes>
-            <Route path='/:alpha3code' element={<CountryDetails countries={countriesData}/>} />
-      </Routes>
+      <div className="row">
+        <div
+          className="col-5"
+          style={{ maxHeight: '90vh', overflow: 'scroll' }}
+        >
+          <CountriesList />
+        </div>
+
+        <div className="col-7">
+          <Routes>
+            <Route
+              path="/:alpha3code"
+              element={<CountryDetails countries={countriesData} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
