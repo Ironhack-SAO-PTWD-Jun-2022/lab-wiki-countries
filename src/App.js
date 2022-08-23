@@ -4,7 +4,6 @@ import CountryDetails from './components/CountryDetails';
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import countriesData from './countries.json';
-import CountryLink from './components/CountryLink';
 
 function App() {
   return (
