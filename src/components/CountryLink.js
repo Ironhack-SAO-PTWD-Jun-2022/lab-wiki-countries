@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 
 function CountryLink(props) {
-  console.log(props);
-
   return (
     props.country && (
       <Link

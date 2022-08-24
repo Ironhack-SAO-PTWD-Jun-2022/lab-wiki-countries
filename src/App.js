@@ -3,14 +3,21 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
-import countriesData from './countries.json';
 import axios from 'axios';
-import {useState} from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState([]);
 
-axios.get('https://ih-countries-api.herokuapp.com/countries').then((result) => {console.log(result)}); 
+  useEffect(() => {
+    axios
+      .get('https://ih-countries-api.herokuapp.com/countries')
+      .then((result) => {
+        console.log(result.data);
+        setCountries(result.data);
+      });
+  }, []);
+
 
   return (
     <div className="App">
@@ -20,7 +27,7 @@ axios.get('https://ih-countries-api.herokuapp.com/countries').then((result) => {
           className="col-5"
           style={{ maxHeight: '90vh', overflow: 'scroll' }}
         >
-          <CountriesList countries={countries}/>
+          <CountriesList countries={countries} />
         </div>
 
         <div className="col-7">
